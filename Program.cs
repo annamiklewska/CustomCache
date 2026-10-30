@@ -1,9 +1,10 @@
-﻿using CustomCache.Classes;
-using CustomCache.DataDownload;
+﻿using CustomCache.DataDownload;
 
+// multiple decorators: a cashing, printing data downloader
 IDataDownloader dataDownloader =
     new CachingDataDownloader(
-        new SlowDataDownloader());
+        new PrintingDataDownloader(
+            new SlowDataDownloader()));
 
 Console.WriteLine(dataDownloader.DownloadData("id1"));
 Console.WriteLine(dataDownloader.DownloadData("id2"));
