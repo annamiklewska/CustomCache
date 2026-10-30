@@ -1,9 +1,9 @@
 ﻿using CustomCache.Classes;
 using CustomCache.DataDownload;
 
-ICache customCache = new Cache();
-IDataDownloader dataDownloader = new SlowDataDownloader();
-
+IDataDownloader dataDownloader =
+    new CachingDataDownloader(
+        new SlowDataDownloader());
 
 Console.WriteLine(dataDownloader.DownloadData("id1"));
 Console.WriteLine(dataDownloader.DownloadData("id2"));
