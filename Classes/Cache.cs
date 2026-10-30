@@ -1,6 +1,6 @@
 namespace CustomCache.Classes;
 
-public interface ICustomCache
+public class Cache : ICache
 {
-    
+
 }
